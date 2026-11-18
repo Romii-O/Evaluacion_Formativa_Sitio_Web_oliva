@@ -1,82 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>formulario</title>
+    <link rel="icon" href="../img/icono.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        #formulario .form-label { font-weight: 600; font-size: .9rem; }
+        #formulario .form-control,
+        #formulario .form-select { padding: .6rem .85rem; border-radius: .6rem; }
+        #formulario .form-control:focus,
+        #formulario .form-select:focus { box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .18); }
+        #formulario .form-control.is-invalid:focus,
+        #formulario .form-select.is-invalid:focus { box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25); }
+        #formulario .form-control.is-valid:focus,
+        #formulario .form-select.is-valid:focus { box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25); }
+        #formulario .btn { padding: .6rem 1.5rem; border-radius: .6rem; }
+    </style>
 </head>
 
-<body>
-    <header style="text-align: center;">
-        <nav>
-            <H2>Formulario de Inscripción </H2>
-            <h3>Completa tus datos para postular a nuestro programa de formación</h3>
-        </nav>
-    </header>
-    <!-- Primera parte del formulario -->
-     <h5>Datos Personales</h5>
-    <nav style="text-align: center;">
-        <div class="row">
-        <div class="col-6" style="text-align: left;">
-        <label for="inputNombre" class="form-label">Nombre</label> <br>
-        <input type="text" class="form-control" placeholder="Ingrese su nombre" aria-label="First name">
+<body class="d-flex flex-column min-vh-100">
+    <h2 class="text-center mt-4 mb-0">Formulario de Contacto</h2>
+
+    <div class="container my-4 my-md-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-7">
+
+                <!-- novalidate: desactiva los avisos del navegador para que mande la validación en JS -->
+                <form id="formulario" class="row g-3" novalidate>
+
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre"
+                               placeholder="Ingrese su nombre" maxlength="50"
+                               autocomplete="given-name" aria-describedby="nombreError">
+                        <div id="nombreError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido"
+                               placeholder="Ingrese su apellido" maxlength="50"
+                               autocomplete="family-name" aria-describedby="apellidoError">
+                        <div id="apellidoError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="correo" name="correo"
+                               placeholder="usuario@gmail.com" maxlength="100"
+                               autocomplete="email" aria-describedby="correoError">
+                        <div id="correoError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono"
+                               placeholder="+56 9 1234 5678" maxlength="20"
+                               autocomplete="tel" aria-describedby="telefonoError">
+                        <div id="telefonoError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
+                               autocomplete="bday" aria-describedby="fechaError">
+                        <div id="fechaError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="region" class="form-label">Región</label>
+                        <select class="form-select" id="region" name="region" aria-describedby="regionError">
+                            <option value="" selected>Seleccione su región</option>
+                            <option value="1">Región de Arica y Parinacota</option>
+                            <option value="2">Región de Tarapacá</option>
+                            <option value="3">Región de Antofagasta</option>
+                            <option value="4">Región de Atacama</option>
+                            <option value="5">Región de Coquimbo</option>
+                            <option value="6">Región de Valparaíso</option>
+                            <option value="7">Región Metropolitana</option>
+                            <option value="8">Región del Libertador General Bernardo O’Higgins</option>
+                            <option value="9">Región del Maule</option>
+                            <option value="10">Región del Biobío</option>
+                            <option value="11">Región de La Araucanía</option>
+                            <option value="12">Región de Los Ríos</option>
+                            <option value="13">Región de Los Lagos</option>
+                            <option value="14">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                            <option value="15">Región de Magallanes y de la Antártica Chilena</option>
+                        </select>
+                        <div id="regionError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-md-6" role="radiogroup" aria-labelledby="educacionLabel" aria-describedby="educacionError">
+                        <div id="educacionLabel" class="form-label">Nivel educacional</div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="educacion" id="nivelMedia" value="media">
+                            <label class="form-check-label" for="nivelMedia">Enseñanza media</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="educacion" id="nivelTecnico" value="tecnico">
+                            <label class="form-check-label" for="nivelTecnico">Técnico</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="educacion" id="nivelUniversitario" value="universitario">
+                            <label class="form-check-label" for="nivelUniversitario">Universitario</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="educacion" id="nivelOtro" value="otro">
+                            <label class="form-check-label" for="nivelOtro">Otro</label>
+                        </div>
+                        <div id="educacionError" class="text-danger small"></div>
+                    </div>
+
+                    <div class="col-12 d-grid gap-2 d-sm-block">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <a href="../index.html" class="btn btn-secondary">Atrás</a>
+                    </div>
+                </form>
+
+                <!-- Aquí aparece el mensaje de éxito o de error general -->
+                <div id="mensajeFormulario" aria-live="polite"></div>
+
+            </div>
         </div>
-        <div class="col-6" style="text-align: left;">
-        <label for="inputApellido" class="form-label">Apellido</label> <br>
-        <input type="text" class="form-control" placeholder="Ingrese su apellido" aria-label="Last name">
-        </div>
-        <div   div class="col-6" style="text-align: left;">
-        <label for="inputEmail" class="form-label">Correo Electrónico</label> <br>
-        <input type="email" class="form-control" placeholder="ejemplo@correo.com" aria-label="Email">
-        
-        </div>
-        <div class="col-6" style="text-align: left;">
-        <label for="inputnumber" class="form-label">Número de Teléfono</label> <br>
-        <input type="text" class="form-control" placeholder="+56 9 1234 5678" aria-label="Phone number">
-        </div>
-        <div class="col-6" style="text-align: left;">
-        <label for="dateInput" class="form-label">Fecha de Nacimiento</label> <br>
-        <input type="date" class="form-control" id="dateInput" aria-label="Date">
-        </div>
-        <div class="col-6" style="text-align: left;">
-        <label for="RegionInput" class="form-label">Región</label> <br>
-        <select class="form-control" id="RegionInput" aria-label="Region">
-        <option value="">Seleccione su región</option>
-        <option value="Región de Arica y Parinacota">Región de Arica y Parinacota</option>
-        <option value="Región de Tarapacá">Región de Tarapacá </option>
-        <option value="Región de Antofagasta">Región de Antofagasta</option>
-        <option value="Región de Atacama">Región de Atacama</option>
-        <option value="Región de Coquimbo">Región de Coquimbo</option>
-        <option value="Región de Valparaíso">Región de Valparaíso</option>
-        <option value="Región Metropolitana de Santiago">Región Metropolitana de Santiago</option>
-        <option value="Región del Libertador General Bernardo O'Higgins">Región del Libertador General Bernardo O'Higgins</option>
-        <option value="Región del Maule">Región del Maule</option>
-        <option value="Región del Biobío">Región del Biobío</option>
-        <option value="Región de La Araucanía">Región de La Araucanía</option>
-        <option value="Región de Los Ríos">Región de Los Ríos</option>
-        <option value="Región de Los Lagos">Región de Los Lagos</option>
-        <option value="Región de Aysén del General Carlos Ibáñez del Campo">Región de Aysén del General Carlos Ibáñez del Campo</option>
-        <option value="Región de Magallanes y de la Antártica Chilena">Región de Magallanes y de la Antártica Chilena</option>
-        </select>
-    </nav>
-<nav> <br>
-    <h3>Información académica</h3>
-    <div>
-        <div class="form-check">
-            <h5>nivel de estudios</h5>
-  <input class="form-check-input" type="radio" name="Enseñanza Media" id="flexRadioDefault1">
-  <label class="form-check-label" for="flexRadioDefault1">
-    Default radio
-  </label>
     </div>
-    <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-  <label class="form-check-label" for="flexRadioDefault2">
-    Default checked radio
-  </label>
- </div>
-    </div>
-</nav>
+
+    <footer class="text-center py-2 mt-auto" style="background-color: rgba(0, 0, 0, 0.4); color: white; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+        <p class="mb-0">&copy; 2026 Rutas del Patrimonio. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- jQuery siempre antes de validacion.js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/validacion.js"></script>
 </body>
 </html>
